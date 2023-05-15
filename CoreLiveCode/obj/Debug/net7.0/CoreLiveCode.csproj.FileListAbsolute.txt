@@ -1,0 +1,7 @@
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.AssemblyReference.cache
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.AssemblyInfoInputs.cache
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.AssemblyInfo.cs
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.CoreCompileInputs.cache
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.MvcApplicationPartsAssemblyInfo.cache
