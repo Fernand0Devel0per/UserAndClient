@@ -10,6 +10,9 @@ namespace CoreLiveCode.DAL
 
         private const string ColumnId = "Id";
         private const string ColumnName = "Name";
+        private const string ColumnEmail = "Email";
+        private const string ColumnAtCreated = "AtCreated";
+        private const string ColumnPhoneNumber = "PhoneNumber";
         private const string ColumnUserId = "UserId";
 
         private readonly string _stringConnection;
@@ -26,10 +29,13 @@ namespace CoreLiveCode.DAL
 
             using var command = connection.CreateCommand();
 
-            command.CommandText = @"INSERT INTO Clients (Id, Name, UserId) OUTPUT INSERTED.ID 
-                                  VALUES (NEWGUID, @name, @userId)";
+            command.CommandText = @"INSERT INTO Clients (Id, Name, UserId, Email, PhoneNumber, AtCreated) OUTPUT INSERTED.ID 
+                                  VALUES (NEWGUID, @name, @userId, @email, @phoneNumber, @atCreated)";
             command.Parameters.AddWithValue("@name", client.Name);
             command.Parameters.AddWithValue("@userId", client.UserId);
+            command.Parameters.AddWithValue("@email", client.Email);
+            command.Parameters.AddWithValue("@phoneNumber", client.PhoneNumber);
+            command.Parameters.AddWithValue("@atCreated", DateTime.Now);
 
             client.Id = (Guid)await command.ExecuteScalarAsync();
 
@@ -43,7 +49,7 @@ namespace CoreLiveCode.DAL
 
             using var command = connection.CreateCommand();
             command.CommandText = @"
-                    SELECT Id, Name, UserId
+                    SELECT Id, Name, Email, UserId, PhoneNumber, AtCreated
                     FROM Clients 
                     WHERE Id = @id;";
 
@@ -57,6 +63,9 @@ namespace CoreLiveCode.DAL
                 {
                     Id = reader.GetGuid(reader.GetOrdinal(ColumnId)),
                     Name = reader.GetString(reader.GetOrdinal(ColumnName)),
+                    Email = reader.GetString(reader.GetOrdinal(ColumnEmail)),
+                    PhoneNumber = reader.GetString(reader.GetOrdinal(ColumnPhoneNumber)),
+                    AtCreated = reader.GetDateTime(reader.GetOrdinal(ColumnAtCreated)),
                     UserId = reader.GetGuid(reader.GetOrdinal(ColumnUserId)),
 
                 };
