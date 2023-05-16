@@ -40,6 +40,22 @@
                  GET /Client/{id}
              </remarks>
         </member>
+        <member name="M:CoreLiveCode.Controllers.ClientController.GetClientsByUserId(System.Guid)">
+             <summary>
+             Retrieves all clients associated with a specific user.
+             </summary>
+             <param name="userId">The ID of the user whose clients are to be retrieved.</param>
+             <returns>A list of clients associated with the specified user.</returns>
+             <response code="200">If the clients are successfully retrieved.</response>
+             <response code="404">If no clients are found for the specified user.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 GET /client/user/12345678-1234-5678-1234-567812345678
+            
+             </remarks>
+        </member>
         <member name="M:CoreLiveCode.Controllers.UsersController.CreateUser(CoreLiveCode.Dtos.User.UserCreateRequest)">
              <summary>
              Creates a new user.
@@ -72,6 +88,42 @@
              Sample request:
             
                  GET /User/{id}
+             </remarks>
+        </member>
+        <member name="M:CoreLiveCode.Controllers.UsersController.UpdateUser(System.Guid,CoreLiveCode.Dtos.User.UserUpdateRequest)">
+             <summary>
+             Updates a user by their unique identifier.
+             </summary>
+             <param name="id">The unique identifier of the user.</param>
+             <param name="request">The updated information of the user.</param>
+             <returns>A confirmation message if the user is successfully updated.</returns>
+             <response code="200">If the user is successfully updated.</response>
+             <response code="404">If the user with the provided identifier is not found.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 PUT /User/{id}
+                 {
+                     "name": "John Doe",
+                     "email": "john.doe@example.com"
+                 }
+             </remarks>
+        </member>
+        <member name="M:CoreLiveCode.Controllers.UsersController.DeleteUser(System.Guid)">
+             <summary>
+             Deletes a user by their unique identifier.
+             </summary>
+             <param name="id">The unique identifier of the user.</param>
+             <returns>A confirmation message if the user is successfully deleted.</returns>
+             <response code="200">If the user is successfully deleted.</response>
+             <response code="404">If the user with the provided identifier is not found.</response>
+             <response code="409">If the user is associated with one or more clients.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 DELETE /User/{id}
              </remarks>
         </member>
     </members>

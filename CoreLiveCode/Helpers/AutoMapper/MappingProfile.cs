@@ -11,6 +11,10 @@ namespace CoreLiveCode.Helpers.AutoMapper
         {
             CreateMap<UserCreateRequest, User>();
 
+            CreateMap<UserUpdateRequest, User>();
+
+            CreateMap<User, UserUpdateRequest>();
+
             CreateMap<User, UserCreateResponse>()
                 .ForMember(dest => dest.AtCreated, opt => opt.MapFrom(src => src.AtCreated.ToString("dd/MM/yyyy")));
 

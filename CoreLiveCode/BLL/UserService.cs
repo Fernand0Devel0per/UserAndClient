@@ -38,5 +38,30 @@ namespace CoreLiveCode.BLL
             return userReturn;
         }
 
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            var existingUser = await _userDao.GetByIdAsync(id);
+            if (existingUser == null)
+            {
+                throw new UserNotFoundException($"The user id {id} not found.");
+            }
+
+            return await _userDao.DeleteAsync(id);
+        }
+
+        public async Task<bool> UpdateAsync(Guid id, UserUpdateRequest request)
+        {
+            var existingUser = await _userDao.GetByIdAsync(id);
+            if (existingUser is null)
+            {
+                throw new UserNotFoundException($"The user id {id} not found.");
+            }
+
+            var userToUpdate = _mapper.Map<User>(request);
+            userToUpdate.Id = id;
+
+            return await _userDao.UpdateAsync(userToUpdate);
+        }
+
     }
 }

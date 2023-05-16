@@ -1,6 +1,7 @@
 ﻿using CoreLiveCode.DAL.Interfaces;
 using CoreLiveCode.Domain;
 using CoreLiveCode.Helpers.Data;
+using CoreLiveCode.Helpers.Exceptions;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
@@ -15,7 +16,7 @@ namespace CoreLiveCode.DAL
         private const string ColumnName = "Name";
         private const string ColumnEmail = "Email";
         private const string ColumnAtCreated = "AtCreated";
-        
+
 
         private readonly string _stringConnection;
 
@@ -36,7 +37,7 @@ namespace CoreLiveCode.DAL
             command.Parameters.AddWithValue("@name", user.Name);
             command.Parameters.AddWithValue("@email", user.Email);
             command.Parameters.AddWithValue("@atCreated", DateTime.UtcNow);
-            
+
             user.AtCreated = DateTime.UtcNow;
             user.Id = (Guid)await command.ExecuteScalarAsync();
 
@@ -71,6 +72,46 @@ namespace CoreLiveCode.DAL
             }
 
             return null;
+        }
+
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_stringConnection);
+                await connection.OpenAsync();
+
+                using var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Users WHERE Id = @id";
+                command.Parameters.AddWithValue("@id", id);
+
+                return await command.ExecuteNonQueryAsync() > 0;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                throw new UserInUseException("Unable to delete. The user is associated with one or more clients.");
+            }
+        }
+
+        public async Task<bool> UpdateAsync(User user)
+        {
+            using var connection = new SqlConnection(_stringConnection);
+            await connection.OpenAsync();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+                UPDATE Users
+                SET Name = @name, Email = @email
+                WHERE Id = @id;";
+
+            command.Parameters.AddWithValue("@id", user.Id);
+            command.Parameters.AddWithValue("@name", user.Name);
+            command.Parameters.AddWithValue("@email", user.Email);
+
+
+
+            return await command.ExecuteNonQueryAsync() > 0; ;
         }
     }
 }
