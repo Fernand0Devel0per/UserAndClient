@@ -30,19 +30,20 @@ namespace CoreLiveCode.DAL
             using var command = connection.CreateCommand();
 
             command.CommandText = @"INSERT INTO Clients (Id, Name, UserId, Email, PhoneNumber, AtCreated) OUTPUT INSERTED.ID 
-                                  VALUES (NEWGUID, @name, @userId, @email, @phoneNumber, @atCreated)";
+                                  VALUES (NEWID(), @name, @userId, @email, @phoneNumber, @atCreated)";
             command.Parameters.AddWithValue("@name", client.Name);
             command.Parameters.AddWithValue("@userId", client.UserId);
             command.Parameters.AddWithValue("@email", client.Email);
             command.Parameters.AddWithValue("@phoneNumber", client.PhoneNumber);
-            command.Parameters.AddWithValue("@atCreated", DateTime.Now);
+            command.Parameters.AddWithValue("@atCreated", DateTime.UtcNow);
 
+            client.AtCreated = DateTime.UtcNow;
             client.Id = (Guid)await command.ExecuteScalarAsync();
 
             return client;
         }
 
-        public async Task<Client> GetClientByIdAsync(Guid id)
+        public async Task<Client> GetByIdAsync(Guid id)
         {
             using var connection = new SqlConnection(_stringConnection);
             await connection.OpenAsync();

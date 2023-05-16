@@ -26,9 +26,9 @@ namespace CoreLiveCode.BLL
             return userReturn;
         }
 
-        public async Task<UserSearchResponse> GetUserById(Guid id)
+        public async Task<UserSearchResponse> GetByIdAsync(Guid id)
         {
-            var user = _userDao.GetUserByIdAsync(id);
+            var user = await _userDao.GetByIdAsync(id);
             if (user is null) 
             {
                 throw new UserNotFoundException($"The user id {id} not found.");

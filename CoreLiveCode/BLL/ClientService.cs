@@ -24,26 +24,30 @@ namespace CoreLiveCode.BLL
         public async Task<ClientCreateResponse> CreateAsync(ClientCreateRequest request)
         {
             var client = _mapper.Map<Client>(request);
-            var user = await _userDao.GetUserByIdAsync(client.UserId);
+            var user = await _userDao.GetByIdAsync(client.UserId);
             if (user == null) 
             {
                 throw new UserNotFoundException($"The user id {request.UserId} not found.");
             }
-
+            var userReturn = _mapper.Map<UserClientResponse>(user);
             var newClient = await _clientDao.CreatAsync(client);
             var clientReturn = _mapper.Map<ClientCreateResponse>(newClient);
+            clientReturn.User = userReturn;
             return clientReturn;
         }
 
-        public async Task<ClientSearchResponse> GetUserById(Guid id)
+        public async Task<ClientSearchResponse> GetByIdAsync(Guid id)
         {
-            var client = _clientDao.GetClientByIdAsync(id);
+            var client = await _clientDao.GetByIdAsync(id);
             if (client is null)
             {
                 throw new ClientNotFoundException($"The client id {id} not found.");
             }
 
+            var user = await _userDao.GetByIdAsync(client.UserId);
+            var userReturn = _mapper.Map<UserClientResponse>(user);
             var clientReturn = _mapper.Map<ClientSearchResponse>(client);
+            clientReturn.User = userReturn;
             return clientReturn;
         }
 

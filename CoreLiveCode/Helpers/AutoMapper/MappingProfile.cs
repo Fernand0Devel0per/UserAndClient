@@ -10,12 +10,26 @@ namespace CoreLiveCode.Helpers.AutoMapper
         public MappingProfile()
         {
             CreateMap<UserCreateRequest, User>();
-            CreateMap<User, UserCreateResponse>();
-            CreateMap<User, UserSearchResponse>();
+
+            CreateMap<User, UserCreateResponse>()
+                .ForMember(dest => dest.AtCreated, opt => opt.MapFrom(src => src.AtCreated.ToString("dd/MM/yyyy")));
+
+            CreateMap<User, UserSearchResponse>()
+                .ForMember(dest => dest.AtCreated, opt => opt.MapFrom(src => src.AtCreated.ToString("dd/MM/yyyy")));
+
+            CreateMap<User, UserClientResponse>();
 
             CreateMap<ClientCreateRequest, Client>();
-            CreateMap<User, ClientCreateResponse>();
-            //CreateMap<Client, UserSearchResponse>();
+
+            CreateMap<Client, ClientCreateResponse>()
+                .ForMember(dest => dest.AtCreated, opt => opt.MapFrom(src => src.AtCreated.ToString("dd/MM/yyyy")))
+                .ForMember(dest => dest.User, opt => opt.Ignore());
+
+            CreateMap<Client, ClientSearchResponse>()
+                .ForMember(dest => dest.AtCreated, opt => opt.MapFrom(src => src.AtCreated.ToString("dd/MM/yyyy")))
+                .ForMember(dest => dest.User, opt => opt.Ignore());
+
+            
         }
     }
 }
