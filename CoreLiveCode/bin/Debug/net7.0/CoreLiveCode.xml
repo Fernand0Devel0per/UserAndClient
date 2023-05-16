@@ -4,5 +4,75 @@
         <name>CoreLiveCode</name>
     </assembly>
     <members>
+        <member name="M:CoreLiveCode.Controllers.ClientController.CreateClient(CoreLiveCode.Dtos.Client.ClientCreateRequest)">
+             <summary>
+             Creates a new client.
+             </summary>
+             <param name="CreateRequest">The client to be created.</param>
+             <returns>The created client.</returns>
+             <response code="201">If the client is successfully created.</response>
+             <response code="400">If the client request is null or invalid.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 POST /Client
+                 {
+                    "name": "Client 1",
+                    "email": "client1@example.com",
+                    "phoneNumber": "123-456-7890",
+                    "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                 }
+             </remarks>
+        </member>
+        <member name="M:CoreLiveCode.Controllers.ClientController.GetClient(System.Guid)">
+             <summary>
+             Retrieves a client by their unique identifier.
+             </summary>
+             <param name="id">The unique identifier of the client.</param>
+             <returns>The client with the provided unique identifier.</returns>
+             <response code="200">If the client is successfully retrieved.</response>
+             <response code="404">If the client with the provided identifier is not found.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 GET /Client/{id}
+             </remarks>
+        </member>
+        <member name="M:CoreLiveCode.Controllers.UsersController.CreateUser(CoreLiveCode.Dtos.User.UserCreateRequest)">
+             <summary>
+             Creates a new user.
+             </summary>
+             <param name="CreateRequest">The user to be created.</param>
+             <returns>The created user.</returns>
+             <response code="201">If the user is successfully created.</response>
+             <response code="400">If the user request is null or invalid.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 POST /User
+                 {
+                    "name": "User 1",
+                    "email": "user1@example.com"
+                 }
+             </remarks>
+        </member>
+        <member name="M:CoreLiveCode.Controllers.UsersController.GetUser(System.Guid)">
+             <summary>
+             Retrieves a user by their unique identifier.
+             </summary>
+             <param name="id">The unique identifier of the user.</param>
+             <returns>The user with the provided unique identifier.</returns>
+             <response code="200">If the user is successfully retrieved.</response>
+             <response code="404">If the user with the provided identifier is not found.</response>
+             <response code="500">If there is an internal server error.</response>
+             <remarks>
+             Sample request:
+            
+                 GET /User/{id}
+             </remarks>
+        </member>
     </members>
 </doc>

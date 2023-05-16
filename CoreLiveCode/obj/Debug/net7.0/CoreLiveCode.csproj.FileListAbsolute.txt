@@ -42,3 +42,4 @@ C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.ge
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\ref\CoreLiveCode.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.xml
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.xml
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.staticwebassets.runtime.json

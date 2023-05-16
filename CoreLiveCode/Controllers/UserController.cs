@@ -18,6 +18,23 @@ namespace CoreLiveCode.Controllers
         }
 
 
+        /// <summary>
+        /// Creates a new user.
+        /// </summary>
+        /// <param name="CreateRequest">The user to be created.</param>
+        /// <returns>The created user.</returns>
+        /// <response code="201">If the user is successfully created.</response>
+        /// <response code="400">If the user request is null or invalid.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /User
+        ///     {
+        ///        "name": "User 1",
+        ///        "email": "user1@example.com"
+        ///     }
+        /// </remarks>
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserCreateRequest CreateRequest)
         {
@@ -32,6 +49,19 @@ namespace CoreLiveCode.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a user by their unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier of the user.</param>
+        /// <returns>The user with the provided unique identifier.</returns>
+        /// <response code="200">If the user is successfully retrieved.</response>
+        /// <response code="404">If the user with the provided identifier is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /User/{id}
+        /// </remarks>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(Guid id)
         {
