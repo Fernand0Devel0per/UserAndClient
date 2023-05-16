@@ -75,5 +75,37 @@ namespace CoreLiveCode.BLL
             return clientResponses;
         }
 
+        public async Task<bool> UpdateAsync(Guid id, ClientUpdateRequest request)
+        {
+            var existingClient = await _clientDao.GetByIdAsync(id);
+            if (existingClient is null)
+            {
+                throw new ClientNotFoundException($"The client id {id} not found.");
+            }
+
+            var existingUser = await _userDao.GetByIdAsync(request.UserId);
+            if (existingUser is null)
+            {
+                throw new UserNotFoundException($"The user id {request.UserId} not found.");
+            }
+
+            var clientToUpdate = _mapper.Map<Client>(request);
+            clientToUpdate.Id = id;
+
+            return await _clientDao.UpdateAsync(clientToUpdate);
+        }
+
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            var existingClient = await _clientDao.GetByIdAsync(id);
+            if (existingClient is null)
+            {
+                throw new ClientNotFoundException($"The client id {id} not found.");
+            }
+
+            return await _clientDao.DeleteAsync(id);
+        }
     }
+
 }
+

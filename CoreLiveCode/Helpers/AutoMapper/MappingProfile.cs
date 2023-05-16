@@ -25,6 +25,8 @@ namespace CoreLiveCode.Helpers.AutoMapper
 
             CreateMap<ClientCreateRequest, Client>();
 
+            CreateMap<ClientUpdateRequest, Client>();
+
             CreateMap<Client, ClientCreateResponse>()
                 .ForMember(dest => dest.AtCreated, opt => opt.MapFrom(src => src.AtCreated.ToString("dd/MM/yyyy")))
                 .ForMember(dest => dest.User, opt => opt.Ignore());

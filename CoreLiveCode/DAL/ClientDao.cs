@@ -111,5 +111,38 @@ namespace CoreLiveCode.DAL
 
             return clients;
         }
+
+        public async Task<bool> UpdateAsync(Client client)
+        {
+            using var connection = new SqlConnection(_stringConnection);
+            await connection.OpenAsync();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+                UPDATE Clients
+                SET Name = @name, Email = @email, PhoneNumber = @phoneNumber, UserId = @userId
+                WHERE Id = @id;";
+
+            command.Parameters.AddWithValue("@id", client.Id);
+            command.Parameters.AddWithValue("@name", client.Name);
+            command.Parameters.AddWithValue("@email", client.Email);
+            command.Parameters.AddWithValue("@phoneNumber", client.PhoneNumber);
+            command.Parameters.AddWithValue("@userId", client.UserId);
+
+            return await command.ExecuteNonQueryAsync() > 0;
+        }
+
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            using var connection = new SqlConnection(_stringConnection);
+            await connection.OpenAsync();
+
+            using var command = connection.CreateCommand();
+            command.CommandText = "DELETE FROM Clients WHERE Id = @id";
+            command.Parameters.AddWithValue("@id", id);
+
+            return await command.ExecuteNonQueryAsync() > 0;
+        }
     }
 }

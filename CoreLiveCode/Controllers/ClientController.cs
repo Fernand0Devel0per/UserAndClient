@@ -115,5 +115,83 @@ namespace CoreLiveCode.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "An unexpected error occurred while retrieving the clients." });
             }
         }
+
+        /// <summary>
+        /// Updates a client with the specified ID.
+        /// </summary>
+        /// <param name="id">The ID of the client to be updated.</param>
+        /// <param name="request">The request containing the updated client information.</param>
+        /// <returns>An IActionResult indicating the success of the operation.</returns>
+        /// <response code="200">If the client is successfully updated.</response>
+        /// <response code="400">If the client ID in the path does not match the one in the request body or if the associated user does not exist.</response>
+        /// <response code="404">If the client with the specified ID is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     PUT /client/12345678-1234-5678-1234-567812345678
+        ///
+        /// </remarks>
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateClient(Guid id, ClientUpdateRequest request)
+        {
+            try
+            {
+                var updated = await _clientService.UpdateAsync(id, request);
+                if (updated)
+                {
+                    return Ok(new { Message = "Client updated successfully" });
+                }
+                return NotFound();
+            }
+            catch (ClientNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (UserNotFoundException)
+            {
+                return BadRequest($"The user with id {request.UserId} does not exist.");
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "An unexpected error occurred while updating the client." });
+            }
+        }
+
+        /// <summary>
+        /// Deletes a client with the specified ID.
+        /// </summary>
+        /// <param name="id">The ID of the client to be deleted.</param>
+        /// <returns>An IActionResult indicating the success of the operation.</returns>
+        /// <response code="200">If the client is successfully deleted.</response>
+        /// <response code="404">If the client with the specified ID is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     DELETE /client/12345678-1234-5678-1234-567812345678
+        ///
+        /// </remarks>
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteClient(Guid id)
+        {
+            try
+            {
+                var deleted = await _clientService.DeleteAsync(id);
+                if (deleted)
+                {
+                    Ok(new { Message = "Client deleted successfully" });
+                }
+                return NotFound();
+            }
+            catch (ClientNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "An unexpected error occurred while deleting the client." });
+            }
+        }
     }
 }
