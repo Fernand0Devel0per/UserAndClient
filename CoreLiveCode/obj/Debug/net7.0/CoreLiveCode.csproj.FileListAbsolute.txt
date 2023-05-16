@@ -1,10 +1,3 @@
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.AssemblyReference.cache
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.AssemblyInfoInputs.cache
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.AssemblyInfo.cs
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.CoreCompileInputs.cache
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\appsettings.json
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.exe
@@ -12,6 +5,7 @@ C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.de
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.runtimeconfig.json
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.pdb
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.xml
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
@@ -26,6 +20,13 @@ C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\runtimes\win-x6
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.AssemblyReference.cache
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.AssemblyInfoInputs.cache
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.AssemblyInfo.cs
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.CoreCompileInputs.cache
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\staticwebassets\msbuild.CoreLiveCode.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\staticwebassets\msbuild.build.CoreLiveCode.props
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.CoreLiveCode.props
@@ -37,9 +38,7 @@ C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\scopedcss\bundl
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.csproj.CopyComplete
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.dll
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\refint\CoreLiveCode.dll
+C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.xml
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.pdb
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.genruntimeconfig.cache
 C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\ref\CoreLiveCode.dll
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.xml
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\obj\Debug\net7.0\CoreLiveCode.xml
-C:\Users\fhlot\Desktop\Living Code\CoreLiveCode\bin\Debug\net7.0\CoreLiveCode.staticwebassets.runtime.json

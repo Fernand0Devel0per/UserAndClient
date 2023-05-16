@@ -6,5 +6,6 @@ namespace CoreLiveCode.DAL.Interfaces
     {
         Task<Client> CreatAsync(Client client);
         Task<Client> GetByIdAsync(Guid id);
+        Task<IEnumerable<Client>> GetByUserIdAsync(Guid userId);
     }
 }

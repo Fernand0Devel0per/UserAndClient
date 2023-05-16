@@ -1,54 +1,11 @@
 {
   "Version": 1,
-  "Hash": "53LYhjKd+H4y0+Fjri5ZTQpeEOlXF0w2HO2GOXhzKTQ=",
+  "Hash": "P3JhlIIfOE/T4B91Rpu2532rBRSOgd2GSVIzJLujkqc=",
   "Source": "CoreLiveCode",
   "BasePath": "_content/CoreLiveCode",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [
-    {
-      "Name": "CoreLiveCode\\wwwroot",
-      "Source": "CoreLiveCode",
-      "ContentRoot": "C:\\Users\\fhlot\\Desktop\\Living Code\\CoreLiveCode\\wwwroot\\",
-      "BasePath": "_content/CoreLiveCode",
-      "Pattern": "**"
-    }
-  ],
-  "Assets": [
-    {
-      "Identity": "C:\\Users\\fhlot\\Desktop\\Living Code\\CoreLiveCode\\wwwroot\\css\\theme-flattop.css",
-      "SourceId": "CoreLiveCode",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fhlot\\Desktop\\Living Code\\CoreLiveCode\\wwwroot\\",
-      "BasePath": "_content/CoreLiveCode",
-      "RelativePath": "css/theme-flattop.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\theme-flattop.css"
-    },
-    {
-      "Identity": "C:\\Users\\fhlot\\Desktop\\Living Code\\CoreLiveCode\\wwwroot\\css\\theme-outline.css",
-      "SourceId": "CoreLiveCode",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fhlot\\Desktop\\Living Code\\CoreLiveCode\\wwwroot\\",
-      "BasePath": "_content/CoreLiveCode",
-      "RelativePath": "css/theme-outline.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\theme-outline.css"
-    }
-  ]
+  "DiscoveryPatterns": [],
+  "Assets": []
 }

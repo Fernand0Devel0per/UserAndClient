@@ -51,5 +51,29 @@ namespace CoreLiveCode.BLL
             return clientReturn;
         }
 
+        public async Task<IEnumerable<ClientSearchResponse>> GetByUserIdAsync(Guid userId)
+        {
+            var clients = await _clientDao.GetByUserIdAsync(userId);
+            if (clients == null || !clients.Any())
+            {
+                throw new ClientNotFoundException($"No clients found for user id {userId}.");
+            }
+
+            var clientResponses = new List<ClientSearchResponse>();
+            var user = await _userDao.GetByIdAsync(userId);
+            var userReturn = _mapper.Map<UserClientResponse>(user);
+
+            foreach (var client in clients)
+            {
+                
+                var clientReturn = _mapper.Map<ClientSearchResponse>(client);
+                clientReturn.User = userReturn;
+
+                clientResponses.Add(clientReturn);
+            }
+
+            return clientResponses;
+        }
+
     }
 }

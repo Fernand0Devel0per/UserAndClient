@@ -83,5 +83,37 @@ namespace CoreLiveCode.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "An unexpected error occurred while updating the product." });
             }
         }
+
+        /// <summary>
+        /// Retrieves all clients associated with a specific user.
+        /// </summary>
+        /// <param name="userId">The ID of the user whose clients are to be retrieved.</param>
+        /// <returns>A list of clients associated with the specified user.</returns>
+        /// <response code="200">If the clients are successfully retrieved.</response>
+        /// <response code="404">If no clients are found for the specified user.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /client/user/12345678-1234-5678-1234-567812345678
+        ///
+        /// </remarks>
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetClientsByUserId(Guid userId)
+        {
+            try
+            {
+                var clientResponses = await _clientService.GetByUserIdAsync(userId);
+                return Ok(clientResponses);
+            }
+            catch (ClientNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { Message = "An unexpected error occurred while retrieving the clients." });
+            }
+        }
     }
 }

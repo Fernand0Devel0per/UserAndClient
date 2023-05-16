@@ -1,6 +1,7 @@
 ﻿using CoreLiveCode.DAL.Interfaces;
 using CoreLiveCode.Domain;
 using CoreLiveCode.Helpers.Data;
+using System.Collections;
 using System.Data.SqlClient;
 
 namespace CoreLiveCode.DAL
@@ -74,6 +75,41 @@ namespace CoreLiveCode.DAL
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<Client>> GetByUserIdAsync(Guid userId)
+        {
+            using var connection = new SqlConnection(_stringConnection);
+            await connection.OpenAsync();
+
+            using var command = connection.CreateCommand();
+            command.CommandText = @"
+                SELECT Id, Name, Email, UserId, PhoneNumber, AtCreated
+                FROM Clients 
+                WHERE UserId = @userId;";
+
+            command.Parameters.AddWithValue("@userId", userId);
+
+            var clients = new List<Client>();
+
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                var client = new Client
+                {
+                    Id = reader.GetGuid(reader.GetOrdinal(ColumnId)),
+                    Name = reader.GetString(reader.GetOrdinal(ColumnName)),
+                    Email = reader.GetString(reader.GetOrdinal(ColumnEmail)),
+                    PhoneNumber = reader.GetString(reader.GetOrdinal(ColumnPhoneNumber)),
+                    AtCreated = reader.GetDateTime(reader.GetOrdinal(ColumnAtCreated)),
+                    UserId = reader.GetGuid(reader.GetOrdinal(ColumnUserId)),
+                };
+
+                clients.Add(client);
+            }
+
+            return clients;
         }
     }
 }
